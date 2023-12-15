@@ -12,7 +12,11 @@
 
                 <%- include('partials/messages') %>
 
-                <form method="POST" action="/contato">
+                <% if (contato._id) { %>
+                    <form method="POST" action="/contato/<%= contato._id %>">
+                <% } else { %>
+                    <form method="POST" action="/contato">
+                <% } %>
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>

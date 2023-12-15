@@ -7,6 +7,15 @@ class Middleware {
         next()
     }
 
+    checkLogged(req, res, next) {
+        if(req.session.user) {
+            next()
+        } else {
+            req.flash("errors", "You must be logged")
+            req.session.save(() => res.redirect("/login"))
+        }
+    }
+
     checkCSRFErr(err, req, res, next) {
         if(err) {
             return res.render("404")

@@ -40,7 +40,7 @@ class Contato {
             let contacts = await ContatoModel.find()
             return contacts
 
-        } catch(err) {
+        } catch (err) {
             console.log(err)
         }
     }
@@ -49,6 +49,32 @@ class Contato {
         try {
             const user = await ContatoModel.findById(id)
             return user
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    async edit(id, name, subname, email, phone) {
+
+        try {
+
+            this.errors = []
+
+            this.valid(name, subname, email, phone)
+
+            if (this.errors.length > 0) return
+
+            await ContatoModel.findByIdAndUpdate(id, { name, subname, email, phone }, { new: true })
+
+        } catch (err) {
+            console.log(err)
+        }
+
+    }
+
+    async delete(id) {
+        try {
+            await ContatoModel.findByIdAndDelete(id)
         } catch(err) {
             console.log(err)
         }

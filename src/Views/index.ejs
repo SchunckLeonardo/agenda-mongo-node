@@ -13,15 +13,30 @@
                 <%- include('partials/messages') %>
 
                 <div class="responsive-table">
-                    <table class="table my-3"> 
+                    <table class="table my-3">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Sobrenome</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <% contacts.forEach(contact => { %>
                             <tr>
                                 <td> <%= contact.name %> </td>
                                 <td><%= contact.subname %></td>
                                 <td><%= contact.email %></td>
                                 <td><%= contact.phone %></td>
+                                <td>
+                                    <a href="/contato/<%= contact._id %>" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="/contato/delete/<%= contact._id %>" class="btn btn-danger btn-sm">Apagar</a>
+                                </td>
                             </tr>
                         <% }) %>
+                    </tbody>
                     </table>
                 </div>
 
