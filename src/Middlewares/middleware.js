@@ -1,7 +1,7 @@
 class Middleware {
 
     checkCSRFErr(err, req, res, next) {
-        if(err && err.code == "EBADCSRFTOKEN") {
+        if(err) {
             return res.render("404")
         }
     }

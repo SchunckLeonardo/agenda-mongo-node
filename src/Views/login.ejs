@@ -1,0 +1,56 @@
+<%- include('partials/head') %>
+
+    <%- include('partials/nav') %>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg-8">
+                    <h1 class="text-center">Login</h1>
+                    <p class="text-center lead">Faça login ou crie sua conta</p>
+
+                    <div class="row">
+                        <div class="col-lg">
+                            <h4>Create account</h4>
+
+                            <form method="POST" action="/login/register">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </form>
+
+                        </div>
+                        <div class="col-lg">
+                            <h4>Sign In</h4>
+
+                            <form method="POST" action="/login/auth">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+        <%- include('partials/footer') %>

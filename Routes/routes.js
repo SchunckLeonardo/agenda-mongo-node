@@ -1,8 +1,9 @@
 const express = require("express")
 const route = express.Router()
-const HomeController = require("../src/Controllers/homeController")
+let HomeController = require("../src/Controllers/homeController")
+let LoginController = require("../src/Controllers/loginController")
 
-route.get("/home", HomeController.homePage)
-route.post("/", HomeController.sendData)
+route.get("/", HomeController.indexPage)
+route.get("/login", LoginController.indexPage)
 
 module.exports = route
