@@ -13,25 +13,15 @@
                 <%- include('partials/messages') %>
 
                 <div class="responsive-table">
-                    <table class="table my-3">
-                        <tr>
-                            <td>Luiz</td>
-                            <td>Otavio</td>
-                            <td>11999999999</td>
-                            <td>otavio@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td>Luiz</td>
-                            <td>Otavio</td>
-                            <td>11999999999</td>
-                            <td>otavio@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td>Luiz</td>
-                            <td>Otavio</td>
-                            <td>11999999999</td>
-                            <td>otavio@gmail.com</td>
-                        </tr>
+                    <table class="table my-3"> 
+                        <% contacts.forEach(contact => { %>
+                            <tr>
+                                <td> <%= contact.name %> </td>
+                                <td><%= contact.subname %></td>
+                                <td><%= contact.email %></td>
+                                <td><%= contact.phone %></td>
+                            </tr>
+                        <% }) %>
                     </table>
                 </div>
 

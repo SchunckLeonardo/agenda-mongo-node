@@ -1,7 +1,10 @@
+let Contact = require("../Models/ContatoModel")
+
 class HomeController {
 
-    indexPage(req, res) {
-        res.render("index")
+    async indexPage(req, res) {
+        let contacts = await Contact.getAll()
+        res.render("index", {contacts})
     }
 
 }

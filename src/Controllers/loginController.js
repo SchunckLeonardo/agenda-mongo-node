@@ -4,7 +4,7 @@ class LoginController {
 
     indexPage(req, res) {
         if(req.session.user) {
-            res.render("index")
+            res.redirect("/")
         } else {
             res.render("login")
         }
