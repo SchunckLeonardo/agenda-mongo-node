@@ -10,19 +10,21 @@
                     <h1 class="text-center">Login</h1>
                     <p class="text-center lead">Faça login ou crie sua conta</p>
 
+                    <%- include('partials/messages') %>
+
                     <div class="row">
                         <div class="col-lg">
                             <h4>Create account</h4>
 
-                            <form method="POST" action="/login/register">
+                            <form method="POST" action="/register">
                                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" class="form-control" name="emailRegister">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <input type="password" class="form-control" name="passwordRegister">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Register</button>
                             </form>

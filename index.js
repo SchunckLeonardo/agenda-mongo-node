@@ -47,6 +47,7 @@ app.use(csrf())
 // Middlewares Globais
 app.use(Middleware.checkCSRFErr)
 app.use(Middleware.csrfMiddleware)
+app.use(Middleware.global)
 
 // Configurar as Rotas
 app.use(Router)
