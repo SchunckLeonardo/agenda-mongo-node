@@ -12,6 +12,7 @@ let UserModel = mongoose.model("users", UserSchema)
 class User {
     constructor() {
         this.errors = []
+        this.user = null
     }
 
     async create(email, password) {
@@ -38,6 +39,36 @@ class User {
 
     }
 
+    async auth(email, password) {
+
+        try {
+
+            this.errors = []
+
+            await this.validate(email, password)
+
+            let user = await UserModel.findOne({ email })
+
+            if(!user) {
+                this.errors.push("Email not found!")
+                this.user = null
+                return
+            }
+
+            if(!bcrypt.compareSync(password, user.password)) {
+                this.errors.push("Incorrect password")
+                this.user = null
+                return
+            }
+
+            this.user = user
+
+        } catch(err) {
+            console.log(err)
+        }
+
+    }
+
     async UserExists(email) {
 
         try {
@@ -54,10 +85,6 @@ class User {
         if (!validator.isEmail(email)) this.errors.push("Invalid E-mail")
         if (password.length < 3) this.errors.push("Password must be greater than 3!")
 
-    }
-
-    errors() {
-        return this.errors
     }
 
 }

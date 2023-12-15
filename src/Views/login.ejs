@@ -33,15 +33,15 @@
                         <div class="col-lg">
                             <h4>Sign In</h4>
 
-                            <form method="POST" action="/login/auth">
+                            <form method="POST" action="/login">
                                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" class="form-control" name="emailLogin">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <input type="password" class="form-control" name="passwordLogin">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Sign in</button>
                             </form>
