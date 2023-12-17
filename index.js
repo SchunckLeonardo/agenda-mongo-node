@@ -12,7 +12,7 @@ const app = express()
 require("dotenv").config()
 
 // Configurando o helmet
-// app.use(helmet())
+app.use(helmet())
 
 // Configuração do Session
 app.use(session({
